@@ -1,0 +1,10 @@
+.header {
+  background-color: var(--badges);
+}
+.container {
+  margin: auto;
+  padding: 0 64px;
+  display: flex;
+  /* width: 1440px; */
+  align-items: center;
+}

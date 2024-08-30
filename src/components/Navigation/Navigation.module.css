@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  gap: 32px;
+  /* margin-left: 450px; */
+}
+.link {
+  text-decoration: none;
+  color: var(--main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.active {
+  color: var(--button-hover);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--button-hover);
+}
