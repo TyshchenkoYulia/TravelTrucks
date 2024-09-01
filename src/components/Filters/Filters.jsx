@@ -1,64 +1,46 @@
-import { BsWind } from "react-icons/bs";
-import { BsCupHot } from "react-icons/bs";
-import { IoMdTv } from "react-icons/io";
-import { MdOutlineGridView } from "react-icons/md";
-import { MdOutlineWaterDrop } from "react-icons/md";
-import { IoAppsOutline } from "react-icons/io5";
-import { MdOutlineAutoAwesomeMosaic } from "react-icons/md";
-import { TbAutomaticGearbox } from "react-icons/tb";
+import { Form, Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { addFilters } from "../../redux/filters/addFilters";
+import { changeValue } from "../../redux/pagination/slice";
+import Location from "../Location/Location";
+import VehicleEquipment from "../VehicleEquipment/VehicleEquipment";
+import VehicleType from "../VehicleType/VehicleType";
 import css from "./Filters.module.css";
 
 export default function Filters() {
+  const initialValues = {
+    location: "",
+    form: "",
+    AC: false,
+    kitchen: false,
+    TV: false,
+    bathroom: false,
+    water: false,
+    microwave: false,
+    radio: false,
+    refrigerator: false,
+    gas: false,
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (value, actions) => {
+    dispatch(addFilters(value));
+    dispatch(changeValue(3));
+    actions.resetForm();
+  };
+
   return (
-    <div className={css.container}>
-      <h3 className={css.title}>Filters</h3>
-      <div>
-        <h4 className={css.text}>Vehicle equipment</h4>
-        <hr className={css.line}></hr>
-        <ul className={css.list}>
-          <li className={css.item}>
-            <BsWind size={32} />
-            AC
-          </li>
-          <li className={css.item}>
-            <TbAutomaticGearbox size={32} />
-            Automatic
-          </li>
-          <li className={css.item}>
-            <BsCupHot size={32} />
-            Kitchen
-          </li>
-          <li className={css.item}>
-            <IoMdTv size={32} />
-            TV
-          </li>
-          <li className={css.item}>
-            <MdOutlineWaterDrop size={32} />
-            Bathroom
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h4 className={css.text}>Vehicle type</h4>
-        <hr className={css.line}></hr>
-        <ul className={css.list}>
-          <li className={css.item}>
-            <MdOutlineAutoAwesomeMosaic size={32} />
-            Van
-          </li>
-          <li className={css.item}>
-            <MdOutlineGridView size={32} />
-            Fully Integrated
-          </li>
-          <li className={css.item}>
-            <IoAppsOutline size={32} />
-            Alcove
-          </li>
-        </ul>
-      </div>
-      <button className={css.btn} type="button">
-        Search
-      </button>
-    </div>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Form>
+        <Location />
+        <h3 className={css.title}>Filters</h3>
+        <VehicleEquipment />
+        <VehicleType />
+        <button className={css.btn} type="submit">
+          Search
+        </button>
+      </Form>
+    </Formik>
   );
 }
