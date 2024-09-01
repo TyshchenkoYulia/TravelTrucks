@@ -1,4 +1,8 @@
 .wrapper {
   margin: 48px 64px 0 64px;
+  display: flex;
+  gap: 64px;
+}
+.container {
   width: 360px;
 }

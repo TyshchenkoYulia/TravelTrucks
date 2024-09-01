@@ -5,12 +5,8 @@ import Layout from "../Layout/Layout.jsx";
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
 const TruckPage = lazy(() => import("../../pages/TruckPage/TruckPage"));
-const TruckFeatures = lazy(() =>
-  import("../../components/TruckFeaures/TruckFeaures")
-);
-const TruckReviews = lazy(() =>
-  import("../../components/TruckReviews/TruckReviews")
-);
+const Features = lazy(() => import("../Features/Features.jsx"));
+const Reviews = lazy(() => import("../Reviews/Reviews.jsx"));
 const NotFound = lazy(() => import("../../pages/NotFound/NotFound"));
 
 export default function App() {
@@ -21,8 +17,9 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/catalog/:Id" element={<TruckPage />}>
-            <Route path="feaures" element={<TruckFeatures />} />
-            <Route path="reviews" element={<TruckReviews />} />
+            <Route index element={<Features />} />
+            <Route path="feaures" element={<Features />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

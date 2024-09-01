@@ -1,6 +1,5 @@
-import { MdOutlineGridView } from "react-icons/md";
 import { IoAppsOutline } from "react-icons/io5";
-import { MdOutlineAutoAwesomeMosaic } from "react-icons/md";
+import { MdOutlineAutoAwesomeMosaic, MdOutlineGridView } from "react-icons/md";
 import { Field } from "formik";
 import css from "./VehicleType.module.css";
 
