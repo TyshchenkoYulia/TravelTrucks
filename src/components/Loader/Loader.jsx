@@ -1,17 +1,16 @@
-import { Watch } from "react-loader-spinner";
+import { Audio } from "react-loader-spinner";
 
 export default function Loader() {
   return (
     <>
-      <Watch
-        visible={true}
-        height="80"
-        width="80"
-        radius="48"
+      <Audio
+        height="100"
+        width="100"
         color="#e44848"
-        ariaLabel="watch-loading"
+        ariaLabel="audio-loading"
         wrapperStyle={{}}
-        wrapperClass=""
+        wrapperClass="wrapper-class"
+        visible={true}
       />
     </>
   );

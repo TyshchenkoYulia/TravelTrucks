@@ -18,11 +18,6 @@ export default function CatalogList() {
           </li>
         ))}
       </ul>
-      {trucks.length > 0 && (
-        <button className={css.btn} type="button">
-          Load more
-        </button>
-      )}
     </div>
   );
 }

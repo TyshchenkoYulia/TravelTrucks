@@ -11,6 +11,7 @@ export default function CatalogPage() {
   useEffect(() => {
     dispatch(fetchAllTrucks());
   }, [dispatch]);
+
   return (
     <section className={css.wrapper}>
       <div className={css.container}>
